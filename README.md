@@ -1,7 +1,7 @@
 <samp>
 
 Example project for creating a GUI Application with WebUI in combination with a modern Webframework.\
-_Gsysmo_ is a simple system monitor using Go, WebUI, Svelte 5 and Bun.
+_Gsysmo_ is a simple system monitor using Go, WebUI, SvelteKit (Svelte 5) and Bun.
 
 ![gsysmo](https://github.com/ttytm/gsysmo/assets/34311583/692a5c1a-1862-4797-a258-b65a1471a780)
 
@@ -26,7 +26,7 @@ _Gsysmo_ is a simple system monitor using Go, WebUI, Svelte 5 and Bun.
    ```
 
    <sub><blockquote>
-   **NOTE:** As alternatives to `--cwd` used above - that you choose at will during development -, change to the ui directory or open it in a separate terminal, execute the bun commands without a specifying a path and change back to the (terminal with the) project root.\
+   **NOTE:** As an alternative to `--cwd` used above, change to the ui directory or open it in a separate terminal, execute the bun commands without specifying a path and change back to the (terminal with the) project root. Just choose what fits best during development.\
       </blockquote></sub>
 
 4. Build / run the application
