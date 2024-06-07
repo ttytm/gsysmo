@@ -98,6 +98,23 @@ func getStats(_ ui.Event) (result Stats) {
 	return
 }
 
+func events(e ui.Event) any {
+	if e.EventType == ui.Connected {
+		println("Connected.")
+	} else if e.EventType == ui.Disconnected {
+		println("Disconnected.")
+	} else if e.EventType == ui.MouseClick {
+		println("Click.")
+	} else if e.EventType == ui.Navigation {
+		target, _ := ui.GetArg[string](e)
+		println("Starting navigation to: ", target)
+		// Since we bind all events, following `href` links is blocked by WebUI.
+		// To control the navigation, we need to use `Navigate()`.
+		e.Window.Navigate(target)
+	}
+	return nil
+}
+
 func main() {
 	/* stats := getStats(ui.Event{})
 	log.Println(len(stats.Processes))
@@ -107,9 +124,13 @@ func main() {
 
 	w := ui.NewWindow()
 
-	ui.SetDefaultRootFolder("ui/build")
+	if !ui.SetDefaultRootFolder("ui/build") {
+		println("The folder `./ui/build` does not exist. Please run `bun run --cwd ui build`")
+		return
+	}
 
 	ui.Bind(w, "getStats", getStats)
+	ui.Bind(w, "", events)
 
 	// Example that connects to a running localhost instance during development.
 	/* w.Show("<html><script src='webui.js'></script></html>")
