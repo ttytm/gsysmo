@@ -4,7 +4,7 @@ go 1.22.3
 
 require (
 	github.com/shirou/gopsutil/v3 v3.24.4
-	github.com/webui-dev/go-webui/v2 v2.4.2-1.0
+	github.com/webui-dev/go-webui/v2 v2.4.3-0.20240615165907-2e6c11bbc4bf
 )
 
 require (
