@@ -11,9 +11,9 @@ _Gsysmo_ is a simple system monitor using Go, WebUI, SvelteKit (Svelte 5) and Bu
    ```sh
    git clone https://github.com/ttytm/gsysmo.git && cd gsysmo
    ```
-2. Install the backend (Go) dependencies
+2. Use the bootstrap helper to setup go-webui and its parent library.
    ```sh
-   go mod tidy
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/webui-dev/go-webui/main/setup.sh)"
    ```
 3. Install frontend dependencies
 
