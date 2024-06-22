@@ -107,7 +107,9 @@ func main() {
 
 	w := ui.NewWindow()
 
-	ui.SetDefaultRootFolder("ui/build")
+	if err := ui.SetDefaultRootFolder("ui/build"); err != nil {
+		log.Fatalf("Ensure you have run `bun run --cwd ui build`. %v", err)
+	}
 
 	ui.Bind(w, "getStats", getStats)
 

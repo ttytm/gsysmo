@@ -20,10 +20,13 @@
 		}
 
 		// Build environment, where webui is available.
-		data = JSON.parse(await webui.getStats());
 		setInterval(async () => {
-			data = JSON.parse(await webui.getStats());
-			data.processes.sort((a: Process, b: Process) => b.cpu_used_percent - a.cpu_used_percent);
+			if (typeof webui !== 'undefined') {
+				if (webui.isConnected()) {
+					data = JSON.parse(await webui.getStats());
+					data.processes.sort((a: Process, b: Process) => b.cpu_used_percent - a.cpu_used_percent);
+				}
+			}
 		}, 1000);
 	});
 </script>
