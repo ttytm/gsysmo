@@ -12,6 +12,7 @@ declare global {
 
 	interface WebUI {
 		getStats(): Primise<Stats>;
+		isConnected(): Primise<bool>;
 	}
 
 	type Stats = {
